@@ -741,8 +741,9 @@ set(DROGON_MONITORING_HEADERS
     lib/inc/drogon/utils/monitoring/Sample.h
     lib/inc/drogon/utils/monitoring/Gauge.h
     lib/inc/drogon/utils/monitoring/Histogram.h)
+
 install(FILES ${DROGON_MONITORING_HEADERS}
-    DESTINATION ${INSTALL_INCLUDE_DIR}/drogon/monitoring)
+    DESTINATION ${INSTALL_INCLUDE_DIR}/drogon/utils/monitoring)
 
 set(DROGON_PLUGIN_HEADERS
     lib/inc/drogon/plugins/Plugin.h
@@ -751,7 +752,8 @@ set(DROGON_PLUGIN_HEADERS
     lib/inc/drogon/plugins/RealIpResolver.h
     lib/inc/drogon/plugins/Hodor.h
     lib/inc/drogon/plugins/SlashRemover.h
-    lib/inc/drogon/plugins/GlobalFilters.h)
+    lib/inc/drogon/plugins/GlobalFilters.h
+    lib/inc/drogon/plugins/PromExporter.h)
 
 install(FILES ${DROGON_PLUGIN_HEADERS}
     DESTINATION ${INSTALL_INCLUDE_DIR}/drogon/plugins)
@@ -763,7 +765,8 @@ target_sources(${PROJECT_NAME} PRIVATE
                ${ORM_HEADERS}
                ${DROGON_UTIL_HEADERS}
                ${DROGON_PLUGIN_HEADERS}
-               ${NOSQL_HEADERS})
+               ${NOSQL_HEADERS}
+               ${DROGON_MONITORING_HEADERS})
 
 source_group("Public API"
     FILES
@@ -771,7 +774,8 @@ source_group("Public API"
     ${ORM_HEADERS}
     ${DROGON_UTIL_HEADERS}
     ${DROGON_PLUGIN_HEADERS}
-    ${NOSQL_HEADERS})
+    ${NOSQL_HEADERS}
+    ${DROGON_MONITORING_HEADERS})
 source_group("Private Headers"
              FILES
              ${private_headers})
